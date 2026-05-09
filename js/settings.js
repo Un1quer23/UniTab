@@ -327,7 +327,7 @@
     });
 
     // Radius options
-    radiusOptions.querySelectorAll('.radius-option').forEach((opt) => {
+    radiusOptions.querySelectorAll('.theme-option').forEach((opt) => {
       opt.classList.toggle('active', opt.dataset.radius === settings.radius);
     });
 
@@ -563,12 +563,12 @@
 
   // Radius options
   radiusOptions.addEventListener('click', (e) => {
-    const opt = e.target.closest('.radius-option');
+    const opt = e.target.closest('.theme-option');
     if (!opt) return;
     settings.radius = opt.dataset.radius;
     saveSettings();
     applyRadius();
-    radiusOptions.querySelectorAll('.radius-option').forEach((o) => {
+    radiusOptions.querySelectorAll('.theme-option').forEach((o) => {
       o.classList.toggle('active', o.dataset.radius === settings.radius);
     });
   });

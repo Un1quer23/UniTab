@@ -1087,51 +1087,6 @@ body.has-custom-bg {
   font-family: var(--font-body);
 }
 
-/* Radius options */
-.radius-options {
-  display: flex;
-  gap: 6px;
-}
-
-.radius-option {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-ui);
-  background: var(--input-bg);
-  cursor: pointer;
-  transition: all var(--transition);
-  width: 100%;
-  color: var(--text-primary);
-}
-
-.radius-option:hover {
-  background: var(--accent-subtle);
-  border-color: var(--accent);
-}
-
-.radius-option.active {
-  border-color: var(--accent);
-  background: var(--accent-subtle);
-  box-shadow: 0 0 0 2px var(--accent-subtle);
-}
-
-.radius-preview {
-  width: 40px;
-  height: 24px;
-  border: 2px solid var(--text-primary);
-  background: transparent;
-  flex-shrink: 0;
-}
-
-.radius-name {
-  font-size: 0.82rem;
-  font-family: var(--font-body);
-}
-
 /* Hidden actions section (when settings btn moved to dropdown) */
 .actions-section.hidden {
   display: none;
