@@ -145,7 +145,14 @@
     },
   };
 
-  const lang = navigator.language.startsWith('zh') ? 'zh-CN' : 'en';
+  function detectLang() {
+    const langs = [navigator.language, ...(navigator.languages || [])];
+    for (const l of langs) {
+      if (l && l.startsWith('zh')) return 'zh-CN';
+    }
+    return 'en';
+  }
+  const lang = detectLang();
 
   window.__i18n = {
     lang,
