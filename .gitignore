@@ -1,3 +1,4 @@
 screenshots/
 .claude/
 *.tmp
+node_modules/
