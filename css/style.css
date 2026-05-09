@@ -705,7 +705,8 @@ body.has-custom-bg {
   opacity: 0.5;
 }
 
-.setting-group:first-of-type.disabled::after {
+/* "仅在浅色模式下可用" label for color settings in dark mode */
+#color-section.disabled::after {
   content: '仅在浅色模式下可用';
   position: absolute;
   top: 2px;
@@ -912,6 +913,7 @@ body.has-custom-bg {
 
 /* Subgroup — wraps color/wallpaper sections for mutual exclusion */
 .setting-subgroup {
+  position: relative;
   transition: opacity var(--transition);
 }
 
