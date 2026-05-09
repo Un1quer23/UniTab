@@ -152,12 +152,13 @@
     }
     return 'en';
   }
-  const lang = detectLang();
+  const state = { lang: detectLang() };
 
   window.__i18n = {
-    lang,
+    get lang() { return state.lang; },
+    set lang(v) { state.lang = v; },
     t(key, vars) {
-      let text = (DICT[this.lang] && DICT[this.lang][key]) || DICT.en[key] || key;
+      let text = (DICT[state.lang] && DICT[state.lang][key]) || DICT.en[key] || key;
       if (vars) {
         for (const [k, v] of Object.entries(vars)) {
           text = text.replace(`{${k}}`, v);
