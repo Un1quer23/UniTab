@@ -1131,3 +1131,28 @@ body.has-custom-bg {
     min-width: 170px;
   }
 }
+
+/* ===============================================
+   Toast Notification
+   =============================================== */
+.toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 24px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-ui);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 200;
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+.toast.visible {
+  opacity: 1;
+}

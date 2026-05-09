@@ -85,6 +85,18 @@
     }
   }
 
+  function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add('visible'));
+    setTimeout(() => {
+      toast.classList.remove('visible');
+      toast.addEventListener('transitionend', () => toast.remove());
+    }, 2500);
+  }
+
   function generateId() {
     return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
   }
@@ -429,8 +441,12 @@
     if (!files.length) return;
 
     let added = 0;
+    let skipped = 0;
     for (const file of files) {
-      if (settings.wallpapers.some((w) => w.name === file.name)) continue;
+      if (settings.wallpapers.some((w) => w.name === file.name)) {
+        skipped++;
+        continue;
+      }
       try {
         const dataUrl = await new Promise((resolve) => {
           const reader = new FileReader();
@@ -462,6 +478,13 @@
       }
       applyBackground();
       syncUI();
+    }
+
+    if (skipped > 0) {
+      const msg = added > 0
+        ? `新增 ${added} 张，跳过 ${skipped} 张重复`
+        : `全部 ${skipped} 张已存在，已跳过`;
+      showToast(msg);
     }
 
     wallpaperFolderInput.value = '';
