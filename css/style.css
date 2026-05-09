@@ -392,9 +392,9 @@ body.has-custom-bg {
 .engine-dropdown {
   position: absolute;
   top: 100%;
-  left: 0;
-  right: 0;
+  left: 14px;
   margin-top: 6px;
+  min-width: 200px;
   padding: 6px;
   background: var(--input-bg);
   border: 1px solid var(--border);
@@ -1165,7 +1165,7 @@ body.has-custom-bg {
     padding: 14px 14px 14px 44px;
   }
   .engine-dropdown {
-    left: 0;
-    right: 0;
+    left: 4px;
+    min-width: 170px;
   }
 }

@@ -106,6 +106,7 @@
   }
 
   function showSuggestions() {
+    closeEngineDropdown();
     suggestionsEl.hidden = false;
     wrapper.classList.add('has-suggestions');
   }
