@@ -34,6 +34,9 @@
       url: 'https://duckduckgo.com/?q=',
       suggestUrl: 'https://duckduckgo.com/ac/?q=',
       parseSuggestions(data) {
+        if (Array.isArray(data) && data.length > 0 && typeof data[0] === 'object') {
+          return data.map((item) => item.phrase);
+        }
         return (data && data[1]) ? data[1].map((item) => item.phrase) : [];
       },
     },
