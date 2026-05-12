@@ -9,7 +9,7 @@
     wallpapers: [],
     activeWallpaperId: '',
     font: 'serif',
-    radius: '20px',
+    radius: '28px',
     overlayStrength: 25,
     shadowStrength: 25,
     settingsBtnPosition: 'footer',
@@ -51,6 +51,11 @@
   const themeOptions = document.getElementById('theme-options');
   const fontOptions = document.getElementById('font-options');
   const radiusOptions = document.getElementById('radius-options');
+
+  const aboutBtn = document.getElementById('about-btn');
+  const aboutPanel = document.getElementById('about-panel');
+  const aboutClose = document.getElementById('about-close');
+  const aboutOverlay = document.getElementById('about-overlay');
 
   let settingsOverlay = null;
 
@@ -238,6 +243,11 @@
         `0 2px 8px rgba(0,0,0,${(0.25 * scale).toFixed(3)}), 0 4px 20px rgba(0,0,0,${(0.15 * scale).toFixed(3)})`);
       // Button shadow
       root.style.setProperty('--shadow-sm', `0 2px 6px rgba(0,0,0,${(0.2 * scale).toFixed(3)})`);
+      root.style.setProperty('--shadow-md', `0 4px 20px rgba(0,0,0,${(0.3 * scale).toFixed(3)})`);
+      root.style.setProperty('--shadow-lg', `0 12px 40px rgba(0,0,0,${(0.4 * scale).toFixed(3)})`);
+      // Input focus shadow
+      root.style.setProperty('--input-shadow-focus',
+        `0 2px 8px rgba(0,0,0,${(0.15 * scale).toFixed(3)}), 0 6px 24px rgba(200,122,60,${(0.15 * scale).toFixed(3)})`);
       // Text shadows
       root.style.setProperty('--text-shadow-time',
         `0 0 16px rgba(255,255,255,${(0.25 * scale).toFixed(3)}), 0 2px 8px rgba(0,0,0,${(0.5 * scale).toFixed(3)})`);
@@ -248,6 +258,11 @@
         `0 1px 3px rgba(44,36,22,${(0.06 * scale).toFixed(3)}), 0 4px 16px rgba(44,36,22,${(0.04 * scale).toFixed(3)})`);
       // Button shadow
       root.style.setProperty('--shadow-sm', `0 1px 2px rgba(44,36,22,${(0.04 * scale).toFixed(3)})`);
+      root.style.setProperty('--shadow-md', `0 4px 20px rgba(44,36,22,${(0.08 * scale).toFixed(3)})`);
+      root.style.setProperty('--shadow-lg', `0 12px 40px rgba(44,36,22,${(0.12 * scale).toFixed(3)})`);
+      // Input focus shadow
+      root.style.setProperty('--input-shadow-focus',
+        `0 1px 3px rgba(44,36,22,${(0.08 * scale).toFixed(3)}), 0 6px 24px rgba(200,122,60,${(0.1 * scale).toFixed(3)})`);
       // Text shadows
       root.style.setProperty('--text-shadow-time', `0 2px 8px rgba(0,0,0,${(0.15 * scale).toFixed(3)})`);
       root.style.setProperty('--text-shadow-greeting', `0 1px 4px rgba(0,0,0,${(0.1 * scale).toFixed(3)})`);
@@ -290,6 +305,17 @@
   function closePanel() {
     panel.setAttribute('hidden', '');
     if (settingsOverlay) settingsOverlay.setAttribute('hidden', '');
+  }
+
+  // --- About panel ---
+  function openAbout() {
+    aboutPanel.removeAttribute('hidden');
+    if (aboutOverlay) aboutOverlay.removeAttribute('hidden');
+  }
+
+  function closeAbout() {
+    aboutPanel.setAttribute('hidden', '');
+    if (aboutOverlay) aboutOverlay.setAttribute('hidden', '');
   }
 
   // --- Sync UI with current settings ---
@@ -338,7 +364,7 @@
 
     // Overlay slider
     overlaySlider.value = settings.overlayStrength;
-    overlayValue.textContent = settings.overlayStrength + '%';
+    overlayValue.textContent = settings.overlayStrength;
 
     // Font options
     fontOptions.querySelectorAll('.font-option').forEach((opt) => {
@@ -537,15 +563,19 @@
   // Overlay strength slider
   overlaySlider.addEventListener('input', () => {
     settings.overlayStrength = parseInt(overlaySlider.value);
-    overlayValue.textContent = settings.overlayStrength + '%';
+    overlayValue.textContent = settings.overlayStrength;
     document.documentElement.style.setProperty('--overlay-strength', settings.overlayStrength / 100);
     saveSettings();
   });
 
   // Keyboard
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !panel.hasAttribute('hidden')) {
-      closePanel();
+    if (e.key === 'Escape') {
+      if (!aboutPanel.hasAttribute('hidden')) {
+        closeAbout();
+      } else if (!panel.hasAttribute('hidden')) {
+        closePanel();
+      }
     }
   });
 
@@ -624,6 +654,11 @@
   createOverlay();
   settingsBtn.addEventListener('click', openPanel);
   closeBtn.addEventListener('click', closePanel);
+
+  // About panel
+  aboutBtn.addEventListener('click', openAbout);
+  aboutClose.addEventListener('click', closeAbout);
+  if (aboutOverlay) aboutOverlay.addEventListener('click', closeAbout);
 
   // Watch for theme changes and update settings UI availability
   const observer = new MutationObserver(() => {

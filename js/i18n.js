@@ -50,6 +50,14 @@
       'settings.btnPosFooter': '搜索框底部',
       'settings.btnPosDropdown': '搜索引擎菜单',
 
+      // About
+      'about.title': '关于 UniTab',
+      'about.close': '关闭',
+      'about.description': 'UniTab 是一个特别的浏览器新标签页扩展，致力于为您带来简洁高效的浏览器启动与搜索体验。',
+      'about.author': '作者',
+      'about.github': 'GitHub',
+      'about.license': '本程序为开源软件，遵循 GNU General Public License v3 协议。',
+
       // Colors
       'color.beige': '米灰',
       'color.sage': '鼠尾草',
@@ -118,6 +126,14 @@
       'settings.btnPosFooter': 'Below Search',
       'settings.btnPosDropdown': 'Engine Menu',
 
+      // About
+      'about.title': 'About UniTab',
+      'about.close': 'Close',
+      'about.description': 'UniTab is a distinctive browser new tab extension, dedicated to bringing you a clean and efficient browser launch and search experience.',
+      'about.author': 'Author',
+      'about.github': 'GitHub',
+      'about.license': 'This program is open source software, licensed under the GNU General Public License v3.',
+
       // Colors
       'color.beige': 'Beige',
       'color.sage': 'Sage',
@@ -140,10 +156,8 @@
   };
 
   function detectLang() {
-    const langs = [navigator.language, ...(navigator.languages || [])];
-    for (const l of langs) {
-      if (l && l.startsWith('zh')) return 'zh-CN';
-    }
+    const primary = navigator.language;
+    if (primary && primary.startsWith('zh')) return 'zh-CN';
     return 'en';
   }
   const state = { lang: detectLang() };

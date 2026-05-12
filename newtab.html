@@ -100,8 +100,17 @@
 
           <div class="setting-row">
             <label class="setting-label"><span data-i18n="settings.overlayStrength">遮罩强度</span> <span id="overlay-value">25%</span></label>
-            <input type="range" id="overlay-slider" class="overlay-slider" min="0" max="50" value="25" step="5">
+            <input type="range" id="overlay-slider" class="range-slider" min="0" max="50" value="25" step="5">
           </div>
+        </div>
+      </section>
+
+      <!-- Shadow -->
+      <section class="setting-group">
+        <h3 class="setting-group-title" data-i18n="settings.shadow">阴影</h3>
+        <div class="setting-row">
+          <label class="setting-label"><span data-i18n="settings.shadowStrength">阴影强度</span> <span id="shadow-value">25</span></label>
+          <input type="range" id="shadow-slider" class="range-slider" min="0" max="50" value="25" step="5">
         </div>
       </section>
 
@@ -138,19 +147,9 @@
       <section class="setting-group">
         <h3 class="setting-group-title" data-i18n="settings.radius">圆角</h3>
         <div class="theme-options" id="radius-options">
-          <button class="theme-option active" data-radius="20px" data-i18n="settings.radiusRounded">圆润</button>
-          <button class="theme-option" data-radius="4px" data-i18n="settings.radiusSquare">方正</button>
+          <button class="theme-option active" data-radius="28px" data-i18n="settings.radiusCapsule">胶囊</button>
           <button class="theme-option" data-radius="12px" data-i18n="settings.radiusSlight">微圆</button>
-          <button class="theme-option" data-radius="28px" data-i18n="settings.radiusCapsule">胶囊</button>
-        </div>
-      </section>
-
-      <!-- Shadow -->
-      <section class="setting-group">
-        <h3 class="setting-group-title" data-i18n="settings.shadow">阴影</h3>
-        <div class="setting-row">
-          <label class="setting-label"><span data-i18n="settings.shadowStrength">阴影强度</span> <span id="shadow-value">25</span></label>
-          <input type="range" id="shadow-slider" class="overlay-slider" min="0" max="50" value="25" step="5">
+          <button class="theme-option" data-radius="4px" data-i18n="settings.radiusSquare">方正</button>
         </div>
       </section>
 
@@ -162,13 +161,55 @@
           <button class="theme-option" data-position="dropdown" data-i18n="settings.btnPosDropdown">搜索引擎菜单</button>
         </div>
       </section>
+
+      <!-- About -->
+      <div class="about-entry">
+        <button id="about-btn" class="about-trigger" data-i18n="about.title">关于 UniTab</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Modal Overlay -->
+  <div id="about-overlay" class="about-overlay" hidden></div>
+
+  <!-- About Modal -->
+  <div id="about-panel" class="about-panel" hidden>
+    <div class="about-panel-header">
+      <h2 data-i18n="about.title">关于 UniTab</h2>
+      <button id="about-close" class="action-btn small icon-only" data-i18n-aria="about.close" aria-label="关闭">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="about-content">
+      <div class="about-description">
+        <p data-i18n="about.description">UniTab 是一个特别的浏览器新标签页扩展，致力于为您带来简洁高效的浏览器启动与搜索体验。</p>
+      </div>
+      <div class="about-info">
+        <div class="about-row">
+          <span class="about-label" data-i18n="about.author">作者</span>
+          <span class="about-value">Un1quer</span>
+        </div>
+        <div class="about-row">
+          <span class="about-label" data-i18n="about.github">GitHub</span>
+          <a class="about-value about-link" href="https://github.com/Un1quer23/UniTab" target="_blank" rel="noopener">github.com/Un1quer23/UniTab</a>
+        </div>
+      </div>
+      <div class="about-license">
+        <p data-i18n="about.license">本程序为开源软件，遵循 GNU General Public License v3 协议。</p>
+      </div>
+      <div class="about-footer">
+        <p>Think Different.</p>
+      </div>
     </div>
   </div>
 
   <script src="js/i18n.js"></script>
+  <script src="js/theme.js"></script>
   <script src="js/search.js"></script>
   <script src="js/clock.js"></script>
   <script src="js/settings.js"></script>
-  <script src="js/theme.js"></script>
 </body>
 </html>
