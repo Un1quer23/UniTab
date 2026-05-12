@@ -1,8 +1,8 @@
 # UniTab
 
-一个精致的浏览器新标签页扩展，带来简洁高效的启动与搜索体验。
+一个特别的浏览器新标签页扩展，致力于为您带来简洁高效的浏览器启动与搜索体验。
 
-A refined browser new tab extension for a clean and efficient browsing start.
+A unique browser new tab extension for a clean and efficient browsing start.
 
 ## 功能 / Features
 
@@ -11,7 +11,7 @@ A refined browser new tab extension for a clean and efficient browsing start.
 - **浅色 / 深色主题** — 跟随系统或手动切换，暖色调护眼
 - **字体切换** — 衬线体 / 系统默认 / 等宽体
 - **可调圆角与阴影** — 胶囊 / 微圆 / 方正，阴影强度可调
-- **零追踪** — 无账户、无服务器、无遥测，所有数据存储在本地
+- **零追踪** — 所有数据存储在本地
 
 > Multi-engine search · Living wallpapers · Light & dark themes · Typography control · Adjustable radius & shadow · Zero tracking
 
