@@ -18,7 +18,7 @@ A unique browser new tab extension for a clean and efficient browsing start.
 ## 安装 / Install
 
 ### Microsoft Edge
-从 [Edge 加载项商店]() 安装
+从 [Edge 加载项商店]() 安装(目前处于提交审核状态,预计几天后上架)
 
 ### Chrome / 其他 Chromium 浏览器
 1. 下载 [最新版本](https://github.com/Un1quer23/UniTab/releases/latest) 的 `UniTab-v*.zip`
