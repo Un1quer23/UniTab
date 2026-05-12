@@ -133,6 +133,7 @@ body {
     radial-gradient(ellipse 50% 40% at 50% 80%, var(--bg-tertiary) 0%, transparent 100%);
   color: var(--text-primary);
   font-family: var(--font-body);
+  user-select: none;
   transition: background-color var(--transition-slow), color var(--transition-slow);
 }
 
@@ -504,6 +505,7 @@ body.has-custom-bg {
   font-family: var(--font-body);
   font-size: 1.05rem;
   outline: none;
+  user-select: text;
   box-shadow: var(--input-shadow);
   transition: all var(--transition);
 }
