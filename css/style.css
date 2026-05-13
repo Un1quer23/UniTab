@@ -387,6 +387,8 @@ body.has-custom-bg {
 .engine-toggle {
   position: absolute;
   left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -407,13 +409,13 @@ body.has-custom-bg {
 }
 
 .engine-toggle:active {
-  transform: scale(0.92);
+  transform: translateY(-50%) scale(0.92);
 }
 
 .engine-toggle svg {
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   transition: transform var(--transition);
 }
 
@@ -425,6 +427,8 @@ body.has-custom-bg {
 .search-submit {
   position: absolute;
   right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -445,13 +449,13 @@ body.has-custom-bg {
 }
 
 .search-submit:active {
-  transform: scale(0.92);
+  transform: translateY(-50%) scale(0.92);
 }
 
 .search-submit svg {
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   transition: transform var(--transition);
 }
 
