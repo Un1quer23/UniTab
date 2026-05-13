@@ -18,12 +18,7 @@
     <main class="search-section">
       <form id="search-form" class="search-form" autocomplete="off">
         <div class="search-input-wrapper">
-          <button type="button" id="engine-toggle" class="engine-toggle" data-i18n-aria="search.toggleEngine" data-i18n-title="search.toggleEngine" aria-label="切换搜索引擎" title="切换搜索引擎">
-            <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <circle cx="11" cy="11" r="8"/>
-              <path d="M21 21l-4.35-4.35"/>
-            </svg>
-          </button>
+          <button type="button" id="engine-toggle" class="engine-toggle" data-i18n-aria="search.toggleEngine" data-i18n-title="search.toggleEngine" aria-label="切换搜索引擎" title="切换搜索引擎"></button>
           <ul id="engine-dropdown" class="engine-dropdown" role="menu"></ul>
           <input
             type="text"
@@ -34,6 +29,12 @@
             autofocus
             autocomplete="off"
           >
+          <button type="submit" id="search-submit" class="search-submit" aria-label="搜索" title="搜索">
+            <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+          </button>
           <ul id="suggestions-dropdown" class="suggestions-dropdown" hidden></ul>
         </div>
       </form>

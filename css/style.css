@@ -410,14 +410,53 @@ body.has-custom-bg {
   transform: scale(0.92);
 }
 
-.engine-toggle .search-icon {
-  position: static;
+.engine-toggle svg {
   display: block;
+  width: 20px;
+  height: 20px;
   transition: transform var(--transition);
 }
 
-.engine-toggle:hover .search-icon {
+.engine-toggle:hover svg {
   transform: rotate(-8deg);
+}
+
+/* Search submit button — mirrors engine-toggle on the right side */
+.search-submit {
+  position: absolute;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border: none;
+  border-radius: var(--radius-ui);
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all var(--transition);
+  z-index: 51;
+}
+
+.search-submit:hover {
+  color: var(--accent);
+  background: var(--accent-subtle);
+  border-radius: var(--radius-ui);
+}
+
+.search-submit:active {
+  transform: scale(0.92);
+}
+
+.search-submit svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition);
+}
+
+.search-submit:hover svg {
+  transform: rotate(8deg);
 }
 
 /* Engine dropdown */
@@ -497,7 +536,7 @@ body.has-custom-bg {
 
 .search-input {
   width: 100%;
-  padding: 16px 18px 16px 52px;
+  padding: 16px 52px;
   border: 1px solid var(--border);
   border-radius: var(--radius-ui);
   background: var(--input-bg);
@@ -520,7 +559,8 @@ body.has-custom-bg {
   box-shadow: var(--input-shadow-focus);
 }
 
-.search-input-wrapper:focus-within .engine-toggle {
+.search-input-wrapper:focus-within .engine-toggle,
+.search-input-wrapper:focus-within .search-submit {
   color: var(--accent);
 }
 
@@ -1325,8 +1365,11 @@ body.has-custom-bg {
   .engine-toggle {
     left: 10px;
   }
+  .search-submit {
+    right: 10px;
+  }
   .search-input {
-    padding: 14px 14px 14px 44px;
+    padding: 14px 44px;
   }
   .engine-dropdown {
     left: 0;
