@@ -3,3 +3,6 @@ screenshots/
 *.tmp
 node_modules/
 website/
+CLAUDE.md
+*.zip
+svg/
