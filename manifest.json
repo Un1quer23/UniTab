@@ -10,7 +10,7 @@
     "128": "icons/icon128.png"
   },
   "author": "Un1quer",
-  "homepage_url": "https://github.com/Un1quer23/UniTab",
+  "homepage_url": "https://github.com/Un1quer23/WillowTab",
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   },

@@ -1,4 +1,4 @@
-# UniTab
+# WillowTab
 
 一个特别的浏览器新标签页扩展，致力于为您带来简洁高效的浏览器启动与搜索体验。
 
@@ -21,17 +21,17 @@ A unique browser new tab extension for a clean and efficient browsing start.
 从 [Edge 加载项商店]() 安装(目前处于提交审核状态,预计几天后上架)
 
 ### Chrome / 其他 Chromium 浏览器
-1. 下载 [最新版本](https://github.com/Un1quer23/UniTab/releases/latest) 的 `UniTab-v*.zip`
+1. 下载 [最新版本](https://github.com/Un1quer23/WillowTab/releases/latest) 的 `WillowTab-v*.zip`
 2. 解压到本地文件夹
 3. 打开 `chrome://extensions`，启用「开发者模式」
 4. 点击「加载已解压的扩展」，选择解压后的文件夹
 
-> Download the [latest release](https://github.com/Un1quer23/UniTab/releases/latest), unzip, then load unpacked in `chrome://extensions` with developer mode on.
+> Download the [latest release](https://github.com/Un1quer23/WillowTab/releases/latest), unzip, then load unpacked in `chrome://extensions` with developer mode on.
 
 ## 项目结构 / Structure
 
 ```
-UniTab/
+WillowTab/
 ├── manifest.json          # 扩展配置
 ├── newtab.html            # 新标签页
 ├── privacy-policy.html    # 隐私政策
