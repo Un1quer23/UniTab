@@ -48,7 +48,7 @@ WillowTab/
 
 ## 隐私政策 / Privacy Policy
 
-[隐私政策](privacy-policy.html) · [Privacy Policy](privacy-policy.html)
+[隐私政策](https://un1quer23.github.io/WillowTab/privacy-policy.html) · [Privacy Policy](https://un1quer23.github.io/WillowTab/privacy-policy.html)
 
 ## 开源协议 / License
 
