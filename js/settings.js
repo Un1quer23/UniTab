@@ -13,6 +13,7 @@
     overlayStrength: 25,
     shadowStrength: 25,
     settingsBtnPosition: 'footer',
+    tabTitle: '',
   };
 
   // Font definitions for CSS
@@ -51,6 +52,7 @@
   const themeOptions = document.getElementById('theme-options');
   const fontOptions = document.getElementById('font-options');
   const radiusOptions = document.getElementById('radius-options');
+  const tabTitleInput = document.getElementById('tab-title-input');
 
   const aboutBtn = document.getElementById('about-btn');
   const aboutPanel = document.getElementById('about-panel');
@@ -280,12 +282,17 @@
     }
   }
 
+  function applyTabTitle() {
+    document.title = settings.tabTitle || 'WillowTab';
+  }
+
   function applyAll() {
     applyBackground();
     applyFont();
     applyRadius();
     applyShadowStrength();
     applySettingsBtnPosition();
+    applyTabTitle();
   }
 
   // --- Settings panel ---
@@ -384,6 +391,9 @@
         opt.classList.toggle('active', opt.dataset.position === settings.settingsBtnPosition);
       });
     }
+
+    // Tab title
+    tabTitleInput.value = settings.tabTitle || '';
   }
 
   // Render wallpaper thumbnail gallery
@@ -566,6 +576,13 @@
     settings.overlayStrength = parseInt(overlaySlider.value);
     overlayValue.textContent = settings.overlayStrength;
     document.documentElement.style.setProperty('--overlay-strength', settings.overlayStrength / 100);
+    saveSettings();
+  });
+
+  // Tab title input
+  tabTitleInput.addEventListener('input', () => {
+    settings.tabTitle = tabTitleInput.value.trim();
+    applyTabTitle();
     saveSettings();
   });
 

@@ -907,6 +907,29 @@ body.has-custom-bg {
   border-color: var(--border-focus);
 }
 
+/* Tab Title */
+.tab-title-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-ui);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  transition: all var(--transition);
+}
+
+.tab-title-input::placeholder {
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.tab-title-input:focus {
+  border-color: var(--border-focus);
+}
+
 /* Wallpaper */
 .wallpaper-input {
   display: none;

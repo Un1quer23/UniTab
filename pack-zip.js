@@ -93,5 +93,5 @@ eocd.writeUInt32LE(cdSize, j); j += 4;
 eocd.writeUInt32LE(cdOffset, j); j += 4;
 eocd.writeUInt16LE(0, j);
 const output = Buffer.concat([...localParts, ...cdParts, eocd]);
-fs.writeFileSync('WillowTab-v1.4.0.zip', output);
-console.log('Done: WillowTab-v1.4.0.zip');
+fs.writeFileSync('WillowTab-v1.4.1.zip', output);
+console.log('Done: WillowTab-v1.4.1.zip');

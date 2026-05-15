@@ -49,6 +49,8 @@
       'settings.settingsBtnPosition': '设置按钮位置',
       'settings.btnPosFooter': '搜索框底部',
       'settings.btnPosDropdown': '搜索引擎菜单',
+      'settings.tabTitle': '标签页名称',
+      'settings.tabTitlePlaceholder': '留空使用默认名称',
 
       // About
       'about.title': '关于 WillowTab',
@@ -169,6 +171,8 @@
       'settings.settingsBtnPosition': 'Settings Button',
       'settings.btnPosFooter': 'Below Search',
       'settings.btnPosDropdown': 'Engine Menu',
+      'settings.tabTitle': 'Tab Title',
+      'settings.tabTitlePlaceholder': 'Leave empty for default',
 
       // About
       'about.title': 'About WillowTab',
