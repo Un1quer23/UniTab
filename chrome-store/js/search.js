@@ -163,6 +163,10 @@
   }
 
   async function fetchSuggestions(query) {
+    if (document.body.dataset.suggestionsEnabled !== 'true') {
+      closeSuggestions();
+      return;
+    }
     if (abortController) {
       abortController.abort();
     }

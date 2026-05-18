@@ -14,6 +14,7 @@
     shadowStrength: 25,
     settingsBtnPosition: 'footer',
     tabTitle: '',
+    enableSuggestions: false,
   };
 
   // Font definitions for CSS
@@ -53,6 +54,7 @@
   const fontOptions = document.getElementById('font-options');
   const radiusOptions = document.getElementById('radius-options');
   const tabTitleInput = document.getElementById('tab-title-input');
+  const suggestionsToggle = document.getElementById('suggestions-toggle');
 
   const aboutBtn = document.getElementById('about-btn');
   const aboutPanel = document.getElementById('about-panel');
@@ -286,6 +288,48 @@
     document.title = settings.tabTitle || 'WillowTab';
   }
 
+  const SUGGESTION_ORIGINS = [
+    'https://suggestqueries.google.com/*',
+    'https://www.baidu.com/*',
+    'https://api.bing.com/*',
+    'https://duckduckgo.com/*',
+  ];
+
+  async function handleSuggestionsToggle() {
+    if (settings.enableSuggestions) {
+      // 关闭
+      settings.enableSuggestions = false;
+      saveSettings();
+      applySuggestions();
+      syncUISuggestions();
+      try { await chrome.permissions.remove({ origins: SUGGESTION_ORIGINS }); } catch (_) { /* ok */ }
+    } else {
+      // 请求权限
+      try {
+        const granted = await chrome.permissions.request({ origins: SUGGESTION_ORIGINS });
+        if (granted) {
+          settings.enableSuggestions = true;
+          saveSettings();
+          applySuggestions();
+        }
+      } catch (_) { /* denied or error */ }
+      syncUISuggestions();
+    }
+  }
+
+  function applySuggestions() {
+    document.body.dataset.suggestionsEnabled = settings.enableSuggestions ? 'true' : 'false';
+  }
+
+  function syncUISuggestions() {
+    if (!suggestionsToggle) return;
+    suggestionsToggle.dataset.enabled = settings.enableSuggestions ? 'true' : 'false';
+    const t = (key) => (window.__i18n && window.__i18n.t(key)) || key;
+    suggestionsToggle.textContent = settings.enableSuggestions
+      ? t('settings.suggestionsOn')
+      : t('settings.suggestionsOff');
+  }
+
   function applyAll() {
     applyBackground();
     applyFont();
@@ -293,6 +337,7 @@
     applyShadowStrength();
     applySettingsBtnPosition();
     applyTabTitle();
+    applySuggestions();
   }
 
   // --- Settings panel ---
@@ -394,6 +439,8 @@
 
     // Tab title
     tabTitleInput.value = settings.tabTitle || '';
+
+    syncUISuggestions();
   }
 
   // Render wallpaper thumbnail gallery
@@ -585,6 +632,11 @@
     applyTabTitle();
     saveSettings();
   });
+
+  // Suggestions toggle
+  if (suggestionsToggle) {
+    suggestionsToggle.addEventListener('click', handleSuggestionsToggle);
+  }
 
   // Keyboard
   document.addEventListener('keydown', (e) => {

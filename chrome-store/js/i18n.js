@@ -52,6 +52,10 @@
       'settings.btnPosDropdown': '搜索引擎菜单',
       'settings.tabTitle': '标签页名称',
       'settings.tabTitlePlaceholder': '留空使用默认名称',
+      'settings.suggestions': '搜索联想',
+      'settings.suggestionsDesc': '输入时显示搜索建议（需授权网络请求）',
+      'settings.suggestionsOn': '已开启',
+      'settings.suggestionsOff': '已关闭',
 
       // About
       'about.title': '关于 WillowTab',
@@ -175,6 +179,10 @@
       'settings.btnPosDropdown': 'Engine Menu',
       'settings.tabTitle': 'Tab Title',
       'settings.tabTitlePlaceholder': 'Leave empty for default',
+      'settings.suggestions': 'Search Suggestions',
+      'settings.suggestionsDesc': 'Show search suggestions as you type (requires network permission)',
+      'settings.suggestionsOn': 'On',
+      'settings.suggestionsOff': 'Off',
 
       // About
       'about.title': 'About WillowTab',
